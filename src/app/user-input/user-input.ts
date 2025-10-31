@@ -4,7 +4,7 @@ import { InvestmentService } from '../investment.service';
 
 @Component({
   selector: 'app-user-input',
-  imports: [FormsModule],
+  standalone: false,  
   templateUrl: './user-input.html',
   styleUrl: './user-input.css',
 })
@@ -16,7 +16,7 @@ export class UserInput {
 
   constructor(private investmentService: InvestmentService) {}
 
-  onSubmit() { 
+  onSubmit() {
     this.investmentService.calculateInvestmentResults({
       initialInvestment: +this.enteredInitialInvestment(),
       duration: +this.enteredDuration(),
